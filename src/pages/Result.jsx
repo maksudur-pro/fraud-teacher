@@ -43,8 +43,14 @@ const Result = () => {
                 </div>
                 <div className="text-center border border-black rounded-lg mt-4 md:mt-2">
                   <div className="logo hidden lg:flex justify-center p-6">
-                    <h1 className="text-center text-2xl font-bold">
-                      Tuition Fraud Check
+                    <h1 className="text-center  font-bold">
+                      <span className="text-4xl uppercase text-[#fdbe2e]">
+                        Tuition
+                      </span>
+                      <br />{" "}
+                      <span className="text-xl uppercase text-black">
+                        Fraud Check
+                      </span>
                     </h1>
                   </div>
                   <div className="py-2  lg:p-6">
