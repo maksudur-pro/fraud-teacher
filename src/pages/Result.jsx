@@ -8,12 +8,13 @@ const Result = () => {
           <div className="my-6 lg:my-16 flex justify-center w-full p-8 lg:p-0">
             <div className="flex flex-col lg:flex-row lg:gap-4 p-4 lg:p-6 mx-0 bg-white bg-opacity-60 shadow-sm rounded-2xl w-full lg:w-[1000px]">
               {/* Left Section: Fraud Risk Level  */}
+
               <div className="w-full lg:w-1/3 ">
                 <div className="block md:hidden">
                   <form className="flex flex-col mt-2 md:flex-row items-center gap-2 w-full">
                     <div className="search-box flex items-center border border-black rounded-md p-1 w-full max-w-[400px] hover:shadow-lg">
                       <input
-                        type="number"
+                        type="tel"
                         name="phone"
                         maxLength="11"
                         placeholder="Mobile Number"
@@ -42,19 +43,19 @@ const Result = () => {
                   </div>
                 </div>
                 <div className="text-center border border-black rounded-lg mt-4 md:mt-2">
-                  <div className="logo hidden lg:flex justify-center p-6">
+                  <div className="logo lg:flex justify-center px-6 pt-6">
                     <h1 className="text-center  font-bold">
                       <span className="text-4xl uppercase text-[#fdbe2e]">
-                        Tuition
+                        Safe Tuition
                       </span>
-                      <br />{" "}
-                      <span className="text-xl uppercase text-black">
+                      <br />
+                      <span className="text-3xl uppercase text-black">
                         Fraud Check
                       </span>
                     </h1>
                   </div>
-                  <div className="py-2  lg:p-6">
-                    <p className="my-1 md:my-6 text-xl font-semibold">
+                  <div className="px-0 lg:px-6">
+                    <p className="my-3 md:mb-6 text-xl font-semibold">
                       Tuition Confirm Ratio
                     </p>
                     <div className="flex justify-center items-center h-full">
@@ -72,12 +73,12 @@ const Result = () => {
                         100%
                       </div>
                     </div>
-                    <p className="text-2xl font-semibold text-black risk-text">
+                    <p className="text-2xl mt-4 font-semibold text-black risk-text">
                       Excellent
                     </p>
                     <p
                       id="risk-message"
-                      className="mt-4 text-center text-gray-600 text-base lg:text-lg font-medium">
+                      className="my-2 text-center text-gray-600 text-base lg:text-lg font-medium">
                       No Risk
                     </p>
                   </div>
@@ -85,11 +86,12 @@ const Result = () => {
               </div>
               {/* Right Section */}
               <div className="w-full lg:w-2/3 rounded-lg lg:p-6 mt-6 lg:mt-0">
+                <h1 className="text-xl font-bold uppercase mb-3">Student</h1>
                 <div className="hidden lg:block w-full">
                   <form className="flex flex-col md:flex-row items-center gap-4 w-full">
                     <div className="search-box flex items-center border border-black rounded-md p-1 w-full  hover:shadow-lg">
                       <input
-                        type="number"
+                        type="tel"
                         maxLength="11"
                         placeholder="Mobile Number"
                         className="input-field w-full px-4 py-2 rounded-l-md md:h-[50px] h-[45px] bg-white text-[#333333] border-none outline-none"
@@ -138,7 +140,7 @@ const Result = () => {
                     <p className="text-sm text-gray-600">মোট বাতিল টিউশন</p>
                   </div>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 border border-black rounded-lg p-4">
                   <h2 className="text-lg">
                     একজন দায়িত্বশীল ও পরিশ্রমী শিক্ষক। ধৈর্যসহকারে বুঝিয়ে পড়ানোর
                     দক্ষতা রয়েছে, তবে আরও অভিজ্ঞতা অর্জনের সুযোগ আছে।

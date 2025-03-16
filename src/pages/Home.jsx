@@ -15,14 +15,16 @@ const Home = () => {
         style={{ backgroundImage: "url('/intro_bg.png')" }}>
         <div className="shadow-sm rounded-2xl text-center bg-white bg-opacity-60 mx-4 py-12 w-full lg:w-[1000px]">
           <h1 className="text-center  font-bold">
-            <span className="text-4xl uppercase text-[#fdbe2e]">Tuition</span>
+            <span className="text-5xl uppercase text-[#fdbe2e]">
+              Safe Tuition
+            </span>
             <br />{" "}
-            <span className="text-xl uppercase text-black">Fraud Check</span>
+            <span className="text-3xl uppercase text-black">Fraud Check</span>
           </h1>
           <p className="text-xl md:text-3xl lg:text-[46px] mt-8 lg:mt-[50px] ">
-            ফেইক টিউটর সনাক্ত করে <br />
+            Safe Tuition ব্যবহার করে <br />
             <span className="font-semibold text-[#fdbe2e] leading-tight md:leading-[7rem] lg:leading-[7rem]">
-              টিউশন ক্যান্সেল এর পরিমাণ কমান
+              টিউশন প্রতারণা থেকে নিরাপদ থাকুন
             </span>
           </p>
           <form
@@ -31,7 +33,7 @@ const Home = () => {
             <div className="search-box flex border border-black rounded-md p-1 w-[90%] hover:shadow-lg">
               <input
                 id="mobileNumber"
-                type="number"
+                type="tel"
                 name="phone"
                 placeholder="Mobile Number"
                 className="input-field w-full px-4 py-3 rounded-l-md md:h-[60px] h-[45px] bg-white text-[#333333] border-none outline-none"
@@ -54,7 +56,7 @@ const Home = () => {
               <a href="/users/register">
                 <span className="hover:text-[#fab12f]">Create Account</span>
               </a>
-              {"  "}|
+              {"  "}|{"  "}
               <a href="/users/login">
                 <span className="text-[#fdbe2e]">Log In</span>
               </a>
