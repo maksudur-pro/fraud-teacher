@@ -45,11 +45,11 @@ const Result = () => {
                 <div className="text-center border border-black rounded-lg mt-4 md:mt-2">
                   <div className="logo lg:flex justify-center px-6 pt-6">
                     <h1 className="text-center  font-bold">
-                      <span className="text-4xl uppercase text-[#fdbe2e]">
+                      <span className="text-2xl uppercase text-[#fdbe2e]">
                         Safe Tuition
                       </span>
                       <br />
-                      <span className="text-3xl uppercase text-black">
+                      <span className="text-xl uppercase text-black">
                         Fraud Check
                       </span>
                     </h1>

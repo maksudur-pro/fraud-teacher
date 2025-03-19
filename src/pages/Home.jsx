@@ -15,11 +15,11 @@ const Home = () => {
         style={{ backgroundImage: "url('/intro_bg.png')" }}>
         <div className="shadow-sm rounded-2xl text-center bg-white bg-opacity-60 mx-4 py-12 w-full lg:w-[1000px]">
           <h1 className="text-center  font-bold">
-            <span className="text-5xl uppercase text-[#fdbe2e]">
+            <span className="text-3xl uppercase text-[#fdbe2e]">
               Safe Tuition
             </span>
             <br />{" "}
-            <span className="text-3xl uppercase text-black">Fraud Check</span>
+            <span className="text-xl uppercase text-black">Fraud Check</span>
           </h1>
           <p className="text-xl md:text-3xl lg:text-[46px] mt-8 lg:mt-[50px] ">
             Safe Tuition ব্যবহার করে <br />
