@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Result = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div
@@ -84,7 +88,9 @@ const Result = () => {
               <div className="w-full lg:w-2/3 rounded-lg lg:p-6 mt-6 lg:mt-0">
                 <div className="flex items-center justify-between">
                   <h1 className="text-xl font-bold uppercase mb-3">Student</h1>
-                  <button className="mb-4 p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md  transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
+                  <button
+                    onClick={() => navigate("/report")}
+                    className="mb-4 p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md  transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
                     রিপোর্ট করুন
                   </button>
                 </div>

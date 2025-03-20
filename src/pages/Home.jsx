@@ -51,7 +51,9 @@ const Home = () => {
 
           <div className="bottom-section flex flex-col md:flex-row justify-between items-center mx-4 md:mx-12 lg:mx-[60px] mt-4 lg:mt-[80px]">
             <div className="text-center md:text-left mb-14 lg:mb-0">
-              <button className=" p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
+              <button
+                onClick={() => navigate("/report")}
+                className=" p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
                 রিপোর্ট করুন
               </button>
             </div>
