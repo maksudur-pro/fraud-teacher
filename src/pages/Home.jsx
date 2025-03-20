@@ -16,10 +16,8 @@ const Home = () => {
         <div className="shadow-sm rounded-2xl text-center bg-white bg-opacity-60 mx-4 py-12 w-full lg:w-[1000px]">
           <h1 className="text-center  font-bold">
             <span className="text-3xl uppercase text-[#fdbe2e]">
-              Safe Tuition
+              Safe <span className="text-black">Tuition</span>
             </span>
-            <br />{" "}
-            <span className="text-xl uppercase text-black">Fraud Check</span>
           </h1>
           <p className="text-xl md:text-3xl lg:text-[46px] mt-8 lg:mt-[50px] ">
             Safe Tuition ব্যবহার করে <br />
@@ -43,7 +41,7 @@ const Home = () => {
               <button
                 type="submit"
                 id="reportButton"
-                className="search-button md:text-[20px] text-[16px] md:h-[60px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
+                className="search-button md:text-[20px] text-[14px] md:h-[60px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
                 রিপোর্ট দেখুন
               </button>
             </div>
@@ -52,14 +50,10 @@ const Home = () => {
           {/*  */}
 
           <div className="bottom-section flex flex-col md:flex-row justify-between items-center mx-4 md:mx-12 lg:mx-[60px] mt-4 lg:mt-[80px]">
-            <div className="text-center md:text-left md:mb-0 mb-14">
-              <a href="/users/register">
-                <span className="hover:text-[#fab12f]">Create Account</span>
-              </a>
-              {"  "}|{"  "}
-              <a href="/users/login">
-                <span className="text-[#fdbe2e]">Log In</span>
-              </a>
+            <div className="text-center md:text-left mb-14 lg:mb-0">
+              <button className=" p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
+                রিপোর্ট করুন
+              </button>
             </div>
             <div className="relative flex flex-col items-end">
               <p className="text-black text-[11px] text-center md:text-right">
@@ -70,7 +64,7 @@ const Home = () => {
                 target="_blank">
                
               </a> */}
-              <button className="search-button mt-2 md:h-[50px] h-[40px] md:w-[140px] w-[100px] font-semibold bg-[#fdbe2e] text-black rounded-md mr-6 transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
+              <button className="text-[14px] mt-2 md:h-[50px] h-[40px] md:w-[140px] w-[100px] font-bold bg-[#fdbe2e] text-black rounded-md mr-6 transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
                 সিক্রেট গ্রুপ
               </button>
 

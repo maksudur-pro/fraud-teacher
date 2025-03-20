@@ -23,7 +23,7 @@ const Result = () => {
                       <button
                         type="submit"
                         id="reportButton"
-                        className="search-button md:text-[16px] text-[16px] md:h-[45px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
+                        className="search-button md:text-[16px] text-[14px] md:h-[45px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
                         রিপোর্ট দেখুন
                       </button>
                     </div>
@@ -46,11 +46,7 @@ const Result = () => {
                   <div className="logo lg:flex justify-center px-6 pt-6">
                     <h1 className="text-center  font-bold">
                       <span className="text-2xl uppercase text-[#fdbe2e]">
-                        Safe Tuition
-                      </span>
-                      <br />
-                      <span className="text-xl uppercase text-black">
-                        Fraud Check
+                        Safe <span className="text-black">Tuition</span>
                       </span>
                     </h1>
                   </div>
@@ -86,7 +82,12 @@ const Result = () => {
               </div>
               {/* Right Section */}
               <div className="w-full lg:w-2/3 rounded-lg lg:p-6 mt-6 lg:mt-0">
-                <h1 className="text-xl font-bold uppercase mb-3">Student</h1>
+                <div className="flex items-center justify-between">
+                  <h1 className="text-xl font-bold uppercase mb-3">Student</h1>
+                  <button className="mb-4 p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md  transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
+                    রিপোর্ট করুন
+                  </button>
+                </div>
                 <div className="hidden lg:block w-full">
                   <form className="flex flex-col md:flex-row items-center gap-4 w-full">
                     <div className="search-box flex items-center border border-black rounded-md p-1 w-full  hover:shadow-lg">
