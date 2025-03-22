@@ -10,9 +10,7 @@ const Home = () => {
 
   return (
     <>
-      <div
-        className="flex justify-center items-center w-full h-[550px] md:h-[650px] lg:h-[790px] bg-cover bg-center"
-        style={{ backgroundImage: "url('/intro_bg.png')" }}>
+      <div className="flex justify-center items-center w-full h-screen">
         <div className="shadow-sm rounded-2xl text-center bg-white bg-opacity-60 mx-4 py-12 w-full lg:w-[1000px]">
           <h1 className="text-center  font-bold">
             <span className="text-3xl uppercase text-[#fdbe2e]">
@@ -50,7 +48,7 @@ const Home = () => {
           {/*  */}
 
           <div className="bottom-section flex flex-col md:flex-row justify-between items-center mx-4 md:mx-12 lg:mx-[60px] mt-4 lg:mt-[80px]">
-            <div className="text-center md:text-left mb-14 lg:mb-0">
+            <div className="text-center md:text-left mb-8 lg:mb-0">
               <button
                 onClick={() => navigate("/report")}
                 className=" p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
@@ -59,16 +57,14 @@ const Home = () => {
             </div>
             <div className="relative flex flex-col items-end">
               <p className="text-black text-[11px] text-center md:text-right">
-                টিউটর খুঁজতে আমাদের গ্রুপে টিউশন অফার পোস্ট করুন
+                টিউটর বা টিউশন খুঁজতে আমাদের ফেসবুক গ্রুপে যুক্ত থাকুন
               </p>
-              {/* <a
-                href="https://www.facebook.com/groups/storexbd"
+              <a
+                className="text-[14px] flex items-center justify-center mt-2 md:h-[50px] h-[40px] md:w-[120px] w-[100px] font-bold bg-[#fdbe2e] text-black rounded-md mr-6 transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105"
+                href="https://www.facebook.com/share/g/1B9YSZKWCm/"
                 target="_blank">
-               
-              </a> */}
-              <button className="text-[14px] mt-2 md:h-[50px] h-[40px] md:w-[140px] w-[100px] font-bold bg-[#fdbe2e] text-black rounded-md mr-6 transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
-                সিক্রেট গ্রুপ
-              </button>
+                ফেসবুক গ্রুপ
+              </a>
 
               <div className="absolute -right-7 top-3">
                 <img src="/down-arrow.svg" alt="arrow" />
