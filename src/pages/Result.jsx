@@ -46,7 +46,7 @@ const Result = () => {
               <div className="logo lg:flex justify-center px-6 pt-6">
                 <h1 className="text-center  font-bold">
                   <span className="text-2xl uppercase text-[#fdbe2e]">
-                    Safe <span className="text-black">Tuition</span>
+                    Teacher
                   </span>
                 </h1>
               </div>
@@ -82,8 +82,8 @@ const Result = () => {
           </div>
           {/* Right Section */}
           <div className="w-full lg:w-2/3 rounded-lg lg:p-6 mt-6 lg:mt-0">
-            <div className="flex items-center justify-between">
-              <h1 className="text-xl font-bold uppercase mb-3">Student</h1>
+            <div className="flex items-center justify-end">
+              {/* <h1 className="text-xl font-bold uppercase mb-3">Student</h1> */}
               <button
                 onClick={() => navigate("/report")}
                 className="mb-4 p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md  transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
