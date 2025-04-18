@@ -1,6 +1,6 @@
 const Report = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen ">
+    <div className="flex items-center justify-center min-h-screen p-4">
       <div className="w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl">
         <div className="max-w-md mx-auto space-y-6">
           <div className="h-8">
@@ -45,7 +45,7 @@ const Report = () => {
               placeholder="Enter accused number"
             />
             <legend className="my-2 text-sm font-medium">
-              Upload supporting evidence *
+              Upload supporting evidence
             </legend>
             <input
               type="file"
