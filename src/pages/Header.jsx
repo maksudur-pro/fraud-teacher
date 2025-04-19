@@ -48,7 +48,23 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li>
-                <a>Report</a>
+                <h1 className="text-[14px] font-semibold my-4 block md:hidden lg:hidden border-b-[1px] border-black rounded-none">
+                  {user?.displayName}
+                </h1>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate("/report")}
+                  className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                  রিপোর্ট করুন
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
@@ -64,14 +80,21 @@ const Header = () => {
         {user ? (
           <>
             <div className="navbar-end cursor-pointer">
-              <span className="text-lg font-semibold mr-2">
+              <h1 className="text-xl font-semibold mr-8 hidden md:block lg:block">
                 {user?.displayName}
-              </span>
+              </h1>
               <button
                 onClick={handleLogout}
-                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2 hidden md:block lg:block">
                 Logout
               </button>
+              <h1
+                onClick={() => navigate("/")}
+                className="text-center font-bold cursor-pointer block md:hidden lg:hidden">
+                <span className="text-2xl uppercase text-[#fdbe2e]">
+                  Safe <span className="text-black">Tuition</span>
+                </span>
+              </h1>
             </div>
           </>
         ) : (
