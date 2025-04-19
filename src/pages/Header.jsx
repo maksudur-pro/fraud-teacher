@@ -64,9 +64,12 @@ const Header = () => {
         {user ? (
           <>
             <div className="navbar-end cursor-pointer">
+              <span className="text-lg font-semibold mr-2">
+                {user?.displayName}
+              </span>
               <button
                 onClick={handleLogout}
-                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a] mb-2">
+                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
                 Logout
               </button>
             </div>
