@@ -1,7 +1,23 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { user, logOut, loading } = useContext(AuthContext);
+
+  if (loading) {
+    <progress className="progress w-56"></progress>;
+  }
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  };
 
   return (
     <div>
@@ -28,11 +44,7 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li>
-                <a>Item 1</a>
-              </li>
-
-              <li>
-                <a>Item 3</a>
+                <a>Report</a>
               </li>
             </ul>
           </div>
@@ -45,25 +57,39 @@ const Header = () => {
           </h1>
         </div>
 
-        <div
-          onClick={() => navigate("/login")}
-          className="navbar-end cursor-pointer">
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 512 512"
-            className="mr-3 w-6 h-6"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path>
-          </svg>
+        {user ? (
+          <>
+            <div className="navbar-end cursor-pointer">
+              <button
+                onClick={handleLogout}
+                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a] mb-2">
+                Logout
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              onClick={() => navigate("/login")}
+              className="navbar-end cursor-pointer">
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 512 512"
+                className="mr-3 w-6 h-6"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path>
+              </svg>
 
-          <button className="btn  text-white bg-[#f1961f] mb-2 hover:bg-[#f59d2a]">
-            Login
-          </button>
-        </div>
+              <button className="btn  text-white bg-[#f1961f] mb-2 hover:bg-[#f59d2a]">
+                Login
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
