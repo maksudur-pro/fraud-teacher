@@ -1,6 +1,32 @@
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const { createUser } = useContext(AuthContext);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    createUser(data.email, data.password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+    reset();
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
@@ -8,21 +34,24 @@ const Register = () => {
           Register
         </h3>
 
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label
               htmlFor="name"
               className="block text-sm font-medium text-gray-700 undefined">
               Name
             </label>
-            <div className="flex flex-col items-start">
-              <input
-                type="text"
-                name="name"
-                placeholder="name"
-                className="block w-full px-4 py-2 mt-2  bg-white border rounded-md focus:border-[#f1961f] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              />
-            </div>
+
+            <input
+              type="text"
+              name="name"
+              {...register("name", { required: true })}
+              placeholder="name"
+              className="block w-full px-4 py-2 mt-2  bg-white border rounded-md focus:border-[#f1961f] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            />
+            {errors.name && (
+              <span className="text-error">Name is required</span>
+            )}
           </div>
           <div className="mt-4">
             <label
@@ -30,14 +59,17 @@ const Register = () => {
               className="block text-sm font-medium text-gray-700 undefined">
               Email
             </label>
-            <div className="flex flex-col items-start">
-              <input
-                type="email"
-                placeholder="email"
-                name="email"
-                className="block w-full px-4 py-2 mt-2  bg-white border rounded-md focus:border-[#f1961f] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              />
-            </div>
+
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              {...register("email", { required: true })}
+              className="block w-full px-4 py-2 mt-2  bg-white border rounded-md focus:border-[#f1961f] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            />
+            {errors.email && (
+              <span className="text-error">Email is required</span>
+            )}
           </div>
 
           <div className="mt-4">
@@ -46,29 +78,22 @@ const Register = () => {
               className="block text-sm font-medium text-gray-700 undefined">
               Password
             </label>
-            <div className="flex flex-col items-start">
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                className="block w-full px-4 py-2 mt-2  bg-white border rounded-md focus:border-[#f1961f] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              />
-            </div>
-          </div>
-          <div className="mt-4">
-            <label
-              htmlFor="password_confirmation"
-              className="block text-sm font-medium text-gray-700 undefined">
-              Confirm Password
-            </label>
-            <div className="flex flex-col items-start">
-              <input
-                type="password"
-                placeholder="password"
-                name="password_confirmation"
-                className="block w-full px-4 py-2 mt-2  bg-white border rounded-md focus:border-[#f1961f] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              />
-            </div>
+
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              {...register("password", { required: true, minLength: 6 })}
+              className="block w-full px-4 py-2 mt-2  bg-white border rounded-md focus:border-[#f1961f] focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+            />
+            {errors.password?.type === "required" && (
+              <span className="text-error">Password is required</span>
+            )}
+            {errors.password?.type === "minLength" && (
+              <span className="text-error">
+                Password must be at least 6 characters
+              </span>
+            )}
           </div>
 
           <div className="flex items-center mt-4">
