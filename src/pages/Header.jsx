@@ -7,7 +7,11 @@ const Header = () => {
   const { user, logOut, loading } = useContext(AuthContext);
 
   if (loading) {
-    <progress className="progress w-56"></progress>;
+    return (
+      <div className="flex justify-center items-center h-screen w-screen bg-white">
+        <progress className="progress w-56"></progress>
+      </div>
+    );
   }
 
   const handleLogout = () => {

@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProviders";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -44,6 +44,14 @@ const Login = () => {
         console.log(errorMessage);
       });
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen w-screen bg-white">
+        <progress className="progress w-56"></progress>
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">

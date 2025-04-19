@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
@@ -10,8 +11,11 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const { createUser, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const { createUser } = useContext(AuthContext);
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     console.log(data);
@@ -19,6 +23,24 @@ const Register = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        Swal.fire({
+          title: "Account created successfully.",
+          showClass: {
+            popup: `
+                      animate__animated
+                      animate__fadeInUp
+                      animate__faster
+                    `,
+          },
+          hideClass: {
+            popup: `
+                      animate__animated
+                      animate__fadeOutDown
+                      animate__faster
+                    `,
+          },
+        });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -26,6 +48,14 @@ const Register = () => {
       });
     reset();
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen w-screen bg-white">
+        <progress className="progress w-56"></progress>
+      </div>
+    );
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
