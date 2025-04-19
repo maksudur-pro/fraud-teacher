@@ -80,7 +80,9 @@ const Header = () => {
         {user ? (
           <>
             <div className="navbar-end cursor-pointer">
-              <h1 className="text-xl font-semibold mr-8 hidden md:block lg:block">
+              <h1 className="text-lg font-semibold mr-8 hidden md:block lg:block">
+                Hello,
+                <br />
                 {user?.displayName}
               </h1>
               <button
