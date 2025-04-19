@@ -47,25 +47,38 @@ const Header = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              {user && (
+                <li>
+                  <h1 className="text-[14px] font-semibold my-4 block md:hidden lg:hidden border-b-[1px] border-black rounded-none">
+                    Hello,
+                    <br />
+                    {user?.displayName}
+                  </h1>
+                </li>
+              )}
               <li>
-                <h1 className="text-[14px] font-semibold my-4 block md:hidden lg:hidden border-b-[1px] border-black rounded-none">
-                  {user?.displayName}
-                </h1>
+                <button
+                  onClick={() => navigate("/")}
+                  className="btn text-white  bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                  Home
+                </button>
               </li>
               <li>
                 <button
                   onClick={() => navigate("/report")}
                   className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
-                  রিপোর্ট করুন
+                  Report
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={handleLogout}
-                  className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
-                  Logout
-                </button>
-              </li>
+              {user && (
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                    Logout
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
           <h1
@@ -75,6 +88,32 @@ const Header = () => {
               Safe <span className="text-black">Tuition</span>
             </span>
           </h1>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <button
+                onClick={() => navigate("/")}
+                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                Home
+              </button>
+            </li>
+
+            <li className="mx-4">
+              <button
+                onClick={() => navigate("/report")}
+                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                Report
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => navigate("/report")}
+                className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                About
+              </button>
+            </li>
+          </ul>
         </div>
 
         {user ? (
