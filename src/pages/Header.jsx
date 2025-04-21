@@ -103,16 +103,16 @@ const Header = () => {
               <button
                 onClick={() => navigate("/report")}
                 className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
-                Report
+                Add Report
               </button>
             </li>
-            <li>
+            {/* <li>
               <button
                 onClick={() => navigate("/admin")}
                 className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
-                Admin
+                All Reports
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
 
