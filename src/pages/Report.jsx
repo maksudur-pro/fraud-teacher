@@ -13,12 +13,14 @@ const Report = () => {
             <legend className="my-2 text-sm font-medium">Phone number *</legend>
             <input
               type="tel"
+              required
               className="input rounded-sm border border-black w-full"
               placeholder="Enter phone number"
             />
             <legend className="my-2 text-sm font-medium">Give Tuition *</legend>
             <input
               type="tel"
+              required
               className="input rounded-sm border border-black w-full"
               placeholder="Enter give tuition"
             />
@@ -27,6 +29,7 @@ const Report = () => {
             </legend>
             <input
               type="tel"
+              required
               className="input rounded-sm border border-black w-full"
               placeholder="Enter confirm tuition"
             />
@@ -35,6 +38,7 @@ const Report = () => {
             </legend>
             <input
               type="tel"
+              required
               className="input rounded-sm border border-black w-full"
               placeholder="Enter cancel tuition"
             />
@@ -42,6 +46,7 @@ const Report = () => {
               Summary of experience
             </legend>
             <textarea
+              required
               className="textarea h-24 rounded-sm border border-black w-full"
               placeholder="Enter your experience"></textarea>
           </form>

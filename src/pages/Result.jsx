@@ -95,6 +95,7 @@ const Result = () => {
                 <form className="flex flex-col md:flex-row items-center gap-4 w-full">
                   <div className="search-box flex items-center border border-black rounded-md p-1 w-full  hover:shadow-lg">
                     <input
+                      required
                       type="tel"
                       maxLength="11"
                       placeholder="Mobile Number"

@@ -38,6 +38,7 @@ const Home = () => {
                 className="flex justify-center mt-8 lg:mt-[50px] mx-2 md:mx-16 lg:mx-0">
                 <div className="search-box flex border border-black rounded-md p-1 w-[90%] hover:shadow-lg">
                   <input
+                    required
                     id="mobileNumber"
                     type="tel"
                     name="phone"
