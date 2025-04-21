@@ -5,6 +5,7 @@ import Result from "../pages/Result";
 import Report from "../pages/Report";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Dashboard from "../pages/Admin/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register />,
+      },
+      {
+        path: "/admin",
+        element: <Dashboard />,
       },
     ],
   },
