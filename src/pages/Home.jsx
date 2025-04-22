@@ -9,7 +9,9 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/result");
+    const form = e.target;
+    const phone = form.phone.value;
+    navigate(`/result?phone=${phone}`);
   };
 
   return (

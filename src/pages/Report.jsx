@@ -25,8 +25,8 @@ const Report = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
-          alert("Report added successfully!");
+        if (data.insertedId || data.modifiedCount > 0) {
+          alert("Report added or updated successfully!");
           form.reset();
         } else {
           alert("Something went wrong.");
