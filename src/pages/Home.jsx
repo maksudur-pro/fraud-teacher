@@ -1,16 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProviders";
 
 const Home = () => {
   const navigate = useNavigate();
-
+  const [error, setError] = useState("");
   const { loading } = useContext(AuthContext);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const phone = form.phone.value;
+  //   navigate(`/result?phone=${phone}`);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const phone = form.phone.value;
+    const phone = form.phone.value.trim();
+
+    // Check if empty
+    if (!phone) {
+      setError("Mobile number is required.");
+      return;
+    }
+
+    // Check if not 11 digits or contains non-numeric characters
+    if (!/^\d{11}$/.test(phone)) {
+      setError("Mobile number must be exactly 11 digits.");
+      return;
+    }
+
+    setError(""); // Clear error if everything is fine
     navigate(`/result?phone=${phone}`);
   };
 
@@ -35,28 +56,35 @@ const Home = () => {
                   টিউশন প্রতারণা থেকে নিরাপদ থাকুন
                 </span>
               </p>
-              <form
-                onSubmit={handleSubmit}
-                className="flex justify-center mt-8 lg:mt-[50px] mx-2 md:mx-16 lg:mx-0">
-                <div className="search-box flex border border-black rounded-md p-1 w-[90%] hover:shadow-lg">
-                  <input
-                    required
-                    id="mobileNumber"
-                    type="tel"
-                    name="phone"
-                    placeholder="Mobile Number"
-                    className="input-field w-full px-4 py-3 rounded-l-md md:h-[60px] h-[45px] bg-white text-[#333333] border-none outline-none"
-                    maxLength="11"
-                  />
+              <div className="">
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex justify-center mt-8 lg:mt-[50px] mx-2 md:mx-16 lg:mx-0">
+                  <div className="search-box flex border border-black rounded-md w-[90%] hover:shadow-lg">
+                    <input
+                      required
+                      id="mobileNumber"
+                      type="tel"
+                      name="phone"
+                      placeholder="Mobile Number"
+                      className="input-field w-full px-4 py-3 rounded-l-md md:h-[60px] h-[45px] bg-white text-[#333333] border-none outline-none"
+                      maxLength="11"
+                    />
 
-                  <button
-                    type="submit"
-                    id="reportButton"
-                    className="search-button md:text-[20px] text-[14px] md:h-[60px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
-                    রিপোর্ট দেখুন
-                  </button>
-                </div>
-              </form>
+                    <button
+                      type="submit"
+                      id="reportButton"
+                      className="search-button md:text-[20px] text-[14px] md:h-[60px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
+                      রিপোর্ট দেখুন
+                    </button>
+                  </div>
+                </form>
+                {error && (
+                  <p className="text-red-500 text-sm mt-2 text-start ml-4 lg:ml-[50px]">
+                    {error}
+                  </p>
+                )}
+              </div>
 
               {/*  */}
 

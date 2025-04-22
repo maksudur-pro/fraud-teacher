@@ -5,6 +5,7 @@ import Result from "../pages/Result";
 import Report from "../pages/Report";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Error from "../pages/Error";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>Error 909</h1>,
+    element: <Error />,
   },
 ]);

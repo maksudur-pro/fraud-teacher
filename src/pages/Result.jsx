@@ -215,7 +215,7 @@ const Result = () => {
                       boxShadow: "0px 6px 24px 0px rgba(6, 128, 250, 0.05)",
                     }}>
                     <p className="text-xl lg:text-2xl font-bold">
-                      {report?.giveTuition}
+                      {report?.giveTuition ?? 0}
                     </p>
                     <p className="text-sm text-gray-600">মোট টিউশন</p>
                   </div>
@@ -225,7 +225,7 @@ const Result = () => {
                       boxShadow: "0px 6px 24px 0px rgba(6, 128, 250, 0.05)",
                     }}>
                     <p className="text-xl lg:text-2xl font-bold">
-                      {report?.confirmTuition}
+                      {report?.confirmTuition ?? 0}
                     </p>
                     <p className="text-sm text-gray-600">মোট কনফার্ম টিউশন</p>
                   </div>
@@ -235,13 +235,15 @@ const Result = () => {
                       boxShadow: "0px 6px 24px 0px rgba(6, 128, 250, 0.05)",
                     }}>
                     <p className="text-xl lg:text-2xl font-bold">
-                      {report?.cancelTuition}
+                      {report?.cancelTuition ?? 0}
                     </p>
                     <p className="text-sm text-gray-600">মোট বাতিল টিউশন</p>
                   </div>
                 </div>
                 <div className="mt-4 border border-black rounded-lg p-4">
-                  <h2 className="text-lg">{report?.summaryOfExperience}</h2>
+                  <h2 className="text-lg">
+                    {report?.summaryOfExperience ?? "No Data"}
+                  </h2>
                 </div>
               </div>
             </div>

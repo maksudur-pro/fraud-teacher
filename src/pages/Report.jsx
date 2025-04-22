@@ -1,6 +1,12 @@
+import { useState } from "react";
+import Swal from "sweetalert2";
+
 const Report = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleAddReport = (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
     const form = event.target;
     const phoneNumber = form.phoneNumber.value;
     const giveTuition = parseInt(form.giveTuition.value);
@@ -26,7 +32,11 @@ const Report = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId || data.modifiedCount > 0) {
-          alert("Report added or updated successfully!");
+          Swal.fire({
+            title: "Report added successfully!",
+            icon: "success",
+            draggable: true,
+          });
           form.reset();
         } else {
           alert("Something went wrong.");
@@ -34,6 +44,9 @@ const Report = () => {
       })
       .catch((err) => {
         console.error("Error posting report:", err);
+      })
+      .finally(() => {
+        setIsSubmitting(false); // Re-enable the button
       });
   };
 
@@ -94,8 +107,14 @@ const Report = () => {
               placeholder="Enter your experience"></textarea>
             <button
               type="submit"
-              className="w-full p-4 mt-4 text-xl text-black font-semibold bg-[#fdbe2e] rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
-              Submit
+              disabled={isSubmitting}
+              className={`w-full p-4 mt-4 text-xl font-semibold rounded-md transition-all duration-300 ease-in-out
+    ${
+      isSubmitting
+        ? "bg-gray-400 cursor-not-allowed"
+        : "bg-[#fdbe2e] text-black hover:text-white hover:shadow-lg"
+    }`}>
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </form>
         </div>
