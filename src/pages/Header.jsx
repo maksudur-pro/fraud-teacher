@@ -67,7 +67,14 @@ const Header = () => {
                 <button
                   onClick={() => navigate("/report")}
                   className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
-                  Report
+                  Add Report
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate("/")}
+                  className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
+                  Search Report
                 </button>
               </li>
               {user && (
@@ -106,13 +113,13 @@ const Header = () => {
                 Add Report
               </button>
             </li>
-            {/* <li>
+            <li>
               <button
-                onClick={() => navigate("/allReport")}
+                onClick={() => navigate("/")}
                 className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
-                All Reports
+                Search Report
               </button>
-            </li> */}
+            </li>
           </ul>
         </div>
 
@@ -140,24 +147,26 @@ const Header = () => {
           </>
         ) : (
           <>
-            <div
-              onClick={() => navigate("/login")}
-              className="navbar-end cursor-pointer">
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 512 512"
-                className="mr-3 w-6 h-6"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path>
-              </svg>
+            <div className="navbar-end cursor-pointer">
+              <div
+                // onClick={() => navigate("/login")}
+                className=" flex items-center gap-2">
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 512 512"
+                  className="mr-3 w-6 h-6"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path>
+                </svg>
 
-              <button className="btn  text-white bg-[#f1961f] mb-2 hover:bg-[#f59d2a]">
-                Login
-              </button>
+                <button className="btn  text-white bg-[#f1961f] mb-2 hover:bg-[#f59d2a]">
+                  Login
+                </button>
+              </div>
             </div>
           </>
         )}

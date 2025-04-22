@@ -1,6 +1,7 @@
 // import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Error from "./Error";
 
 const Result = () => {
   // const navigate = useNavigate();
@@ -15,7 +16,12 @@ const Result = () => {
   useEffect(() => {
     if (phone) {
       fetch(`http://localhost:5000/reports/${phone}`)
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("No report found");
+          }
+          return res.json();
+        })
         .then((data) => {
           setReport(data);
           setLoading(false);
@@ -28,7 +34,6 @@ const Result = () => {
         });
     }
   }, [phone]);
-
   const total = parseInt(report?.giveTuition) || 1;
   const confirmRate = Math.round((report?.confirmTuition / total) * 100) || 0;
 
@@ -60,7 +65,7 @@ const Result = () => {
         <div className="flex justify-center items-center h-screen w-screen bg-white">
           <progress className="progress w-56"></progress>
         </div>
-      ) : (
+      ) : report ? (
         <div className="flex justify-center h-screen mt-10 p-4">
           <div className="">
             <div className="flex flex-col lg:flex-row lg:gap-4 p-4 lg:p-6 mx-0 bg-white bg-opacity-60 shadow-sm rounded-2xl w-full lg:w-[1000px]">
@@ -68,37 +73,37 @@ const Result = () => {
 
               <div className="w-full lg:w-1/3 ">
                 {/* <div className="block md:hidden">
-                <form className="flex flex-col mt-2 md:flex-row items-center gap-2 w-full">
-                  <div className="search-box flex items-center border border-black rounded-md p-1 w-full max-w-[400px] hover:shadow-lg">
-                    <input
-                      type="tel"
-                      name="phone"
-                      maxLength="11"
-                      placeholder="Mobile Number"
-                      className="input-field w-full px-4 py-2 rounded-l-md md:h-[50px] h-[45px] bg-white text-[#333333] border-none outline-none"
-                    />
-                    <button
-                      type="submit"
-                      id="reportButton"
-                      className="search-button md:text-[16px] text-[14px] md:h-[45px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
-                      রিপোর্ট দেখুন
-                    </button>
-                  </div>
-                </form>
-
-                <p
-                  id="errorMessageLeft"
-                  className="text-red-500 hidden m-0 mt-2 text-center">
-                  Invalid mobile number.
-                </p>
-
-                <div className="mt-2 text-center text-lg font-semibold text-gray-500">
-                  <p>
-                    Your Number is
-                    <span className="font-bold text-black"> 01721308663</span>
-                  </p>
+              <form className="flex flex-col mt-2 md:flex-row items-center gap-2 w-full">
+                <div className="search-box flex items-center border border-black rounded-md p-1 w-full max-w-[400px] hover:shadow-lg">
+                  <input
+                    type="tel"
+                    name="phone"
+                    maxLength="11"
+                    placeholder="Mobile Number"
+                    className="input-field w-full px-4 py-2 rounded-l-md md:h-[50px] h-[45px] bg-white text-[#333333] border-none outline-none"
+                  />
+                  <button
+                    type="submit"
+                    id="reportButton"
+                    className="search-button md:text-[16px] text-[14px] md:h-[45px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
+                    রিপোর্ট দেখুন
+                  </button>
                 </div>
-              </div> */}
+              </form>
+
+              <p
+                id="errorMessageLeft"
+                className="text-red-500 hidden m-0 mt-2 text-center">
+                Invalid mobile number.
+              </p>
+
+              <div className="mt-2 text-center text-lg font-semibold text-gray-500">
+                <p>
+                  Your Number is
+                  <span className="font-bold text-black"> 01721308663</span>
+                </p>
+              </div>
+            </div> */}
                 <div className="text-center border border-black rounded-lg mt-4 md:mt-2">
                   <div className="logo lg:flex justify-center px-6 pt-6">
                     <h1 className="text-center  font-bold">
@@ -107,6 +112,7 @@ const Result = () => {
                       </span>
                     </h1>
                   </div>
+
                   <div className="px-0 lg:px-6">
                     <p className="my-3 md:mb-6 text-xl font-semibold">
                       Tuition Confirm Ratio
@@ -159,40 +165,40 @@ const Result = () => {
               {/* Right Section */}
               <div className="w-full lg:w-2/3 rounded-lg lg:p-6 mt-6 lg:mt-0">
                 {/* <div className="flex items-center justify-end">
-              <h1 className="text-xl font-bold uppercase mb-3">Student</h1> 
-              <button
-                onClick={() => navigate("/report")}
-                className="mb-4 p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md  transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
-                রিপোর্ট করুন
-              </button>
-            </div> */}
+            <h1 className="text-xl font-bold uppercase mb-3">Student</h1> 
+            <button
+              onClick={() => navigate("/report")}
+              className="mb-4 p-2 text-sm font-semibold bg-[#fdbe2e] text-black rounded-md  transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg hover:scale-105">
+              রিপোর্ট করুন
+            </button>
+          </div> */}
                 {/* <div className="hidden lg:block w-full">
-                <form className="flex flex-col md:flex-row items-center gap-4 w-full">
-                  <div className="search-box flex items-center border border-black rounded-md p-1 w-full  hover:shadow-lg">
-                    <input
-                      required
-                      type="tel"
-                      maxLength="11"
-                      placeholder="Mobile Number"
-                      className="input-field w-full px-4 py-2 rounded-l-md md:h-[50px] h-[45px] bg-white text-[#333333] border-none outline-none"
-                    />
-                    <button
-                      type="submit"
-                      className="search-button md:text-[16px] text-[16px] md:h-[45px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
-                      রিপোর্ট দেখুন
-                    </button>
-                  </div>
-                </form>
-                <p className="text-red-500 mt-2 hidden">
-                  Invalid mobile number.
-                </p>
-                <div className="mt-2 text-center text-lg font-semibold text-gray-500">
-                  <p>
-                    Your Number is
-                    <span className="font-bold text-black"> 01721308663</span>
-                  </p>
+              <form className="flex flex-col md:flex-row items-center gap-4 w-full">
+                <div className="search-box flex items-center border border-black rounded-md p-1 w-full  hover:shadow-lg">
+                  <input
+                    required
+                    type="tel"
+                    maxLength="11"
+                    placeholder="Mobile Number"
+                    className="input-field w-full px-4 py-2 rounded-l-md md:h-[50px] h-[45px] bg-white text-[#333333] border-none outline-none"
+                  />
+                  <button
+                    type="submit"
+                    className="search-button md:text-[16px] text-[16px] md:h-[45px] h-[45px] md:w-[240px] w-[180px] font-semibold bg-[#fdbe2e] text-black rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
+                    রিপোর্ট দেখুন
+                  </button>
                 </div>
-              </div> */}
+              </form>
+              <p className="text-red-500 mt-2 hidden">
+                Invalid mobile number.
+              </p>
+              <div className="mt-2 text-center text-lg font-semibold text-gray-500">
+                <p>
+                  Your Number is
+                  <span className="font-bold text-black"> 01721308663</span>
+                </p>
+              </div>
+            </div> */}
                 {/* Tuition Summary  */}
                 <div className="my-2 text-center text-lg font-semibold text-gray-500">
                   <p>
@@ -241,6 +247,8 @@ const Result = () => {
             </div>
           </div>
         </div>
+      ) : (
+        <Error></Error>
       )}
     </>
   );
