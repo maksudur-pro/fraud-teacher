@@ -1,4 +1,42 @@
 const Report = () => {
+  const handleAddReport = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const phoneNumber = form.phoneNumber.value;
+    const giveTuition = parseInt(form.giveTuition.value);
+    const confirmTuition = parseInt(form.confirmTuition.value);
+    const cancelTuition = parseInt(form.cancelTuition.value);
+    const summaryOfExperience = form.summaryOfExperience.value;
+
+    const reportData = {
+      phoneNumber,
+      giveTuition,
+      confirmTuition,
+      cancelTuition,
+      summaryOfExperience,
+    };
+
+    fetch("http://localhost:5000/add-report", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reportData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("Report added successfully!");
+          form.reset();
+        } else {
+          alert("Something went wrong.");
+        }
+      })
+      .catch((err) => {
+        console.error("Error posting report:", err);
+      });
+  };
+
   return (
     <div className="w-full md:w-[50%] lg:w-[50%] mx-auto h-screen">
       <div className="px-10 py-8  ">
@@ -9,11 +47,12 @@ const Report = () => {
             </h1>
           </div>
 
-          <form>
+          <form onSubmit={handleAddReport}>
             <legend className="my-2 text-sm font-medium">Phone number *</legend>
             <input
               type="tel"
               required
+              name="phoneNumber"
               className="input rounded-sm border border-black w-full"
               placeholder="Enter phone number"
             />
@@ -21,6 +60,7 @@ const Report = () => {
             <input
               type="tel"
               required
+              name="giveTuition"
               className="input rounded-sm border border-black w-full"
               placeholder="Enter give tuition"
             />
@@ -30,6 +70,7 @@ const Report = () => {
             <input
               type="tel"
               required
+              name="confirmTuition"
               className="input rounded-sm border border-black w-full"
               placeholder="Enter confirm tuition"
             />
@@ -39,6 +80,7 @@ const Report = () => {
             <input
               type="tel"
               required
+              name="cancelTuition"
               className="input rounded-sm border border-black w-full"
               placeholder="Enter cancel tuition"
             />
@@ -47,15 +89,15 @@ const Report = () => {
             </legend>
             <textarea
               required
+              name="summaryOfExperience"
               className="textarea h-24 rounded-sm border border-black w-full"
               placeholder="Enter your experience"></textarea>
+            <button
+              type="submit"
+              className="w-full p-4 mt-4 text-xl text-black font-semibold bg-[#fdbe2e] rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
+              Submit
+            </button>
           </form>
-
-          <button
-            type="submit"
-            className="w-full p-4 text-xl text-black font-semibold bg-[#fdbe2e] rounded-md transition-all duration-300 ease-in-out hover:text-white hover:shadow-lg">
-            Submit
-          </button>
         </div>
       </div>
     </div>

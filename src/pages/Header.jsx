@@ -108,7 +108,7 @@ const Header = () => {
             </li>
             {/* <li>
               <button
-                onClick={() => navigate("/admin")}
+                onClick={() => navigate("/allReport")}
                 className="btn text-white bg-[#f1961f] hover:bg-[#f59d2a]  mb-2">
                 All Reports
               </button>

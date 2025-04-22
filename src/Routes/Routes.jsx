@@ -5,6 +5,7 @@ import Result from "../pages/Result";
 import Report from "../pages/Report";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import AllReports from "../pages/AllReports";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
         path: "/report",
         element: <Report />,
       },
+      // {
+      //   path: "/allReport",
+      //   element: <AllReports />,
+      // },
       {
         path: "/login",
         element: <Login />,
