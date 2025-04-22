@@ -62,7 +62,7 @@ const Result = () => {
   return (
     <>
       {loading ? (
-        <div className="flex justify-center items-center h-screen w-screen bg-white">
+        <div className="flex justify-center items-center h-screen w-screen ">
           <progress className="progress w-56"></progress>
         </div>
       ) : report ? (
