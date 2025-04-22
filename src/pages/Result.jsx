@@ -15,7 +15,7 @@ const Result = () => {
 
   useEffect(() => {
     if (phone) {
-      fetch(`http://localhost:5000/reports/${phone}`)
+      fetch(`https://safe-tuition-server.vercel.app/reports/${phone}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("No report found");

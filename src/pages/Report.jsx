@@ -22,7 +22,7 @@ const Report = () => {
       summaryOfExperience,
     };
 
-    fetch("http://localhost:5000/add-report", {
+    fetch("https://safe-tuition-server.vercel.app/add-report", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
